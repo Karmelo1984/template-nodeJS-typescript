@@ -4,19 +4,20 @@ Proyecto base para desarrollar pequeñas API's con typescript.
 
 Parte de `nodeJS` y `express`, y se ha optado por `yarn` como gestor de paquetes.
 
-
 # PRIMEROS PASOS: Instalación básica.
 
 Comprueba que tienes intalado en tu sistema nodeJS, npm, yarn y typescript.
-``` bash
-    node --version
-    npm --version
-    yarn --version
-    tsc --version
+
+```bash
+    node --version  --> `v18.17.1`
+    npm --version   --> `v9.6.7`
+    yarn --version  --> `v1.22.19`
+    tsc --version   --> `v5.2.2`
 ```
 
 En linux (debian) puedes instalarlo siguiendo los siguientes pasos:
-``` bash
+
+```bash
     sudo apt-get -y update
     sudo apt-get -y install nodejs npm
     sudo npm install --global yarn
@@ -24,17 +25,21 @@ En linux (debian) puedes instalarlo siguiendo los siguientes pasos:
     sudo npm i ts-node -g
 ```
 
+Para que funcione los formateadores automáticos de código, debes tener instalado en Visual Studio Code, Prettier.
+
 # EJECUCIÓN.
 
 Los modos de ejecución son los siguientes:
-- `dev`: Inicia el servidor en modo de desarrollo utilizando Nodemon y establece la variable de entorno NODE_ENV en "development".
+
+- `dev`: Inicia el servidor en modo de desarrollo utilizando Nodemon y establece la variable de entorno NODE_ENV en
+  "development".
 - `start`: Inicia el servidor utilizando Nodemon.
 - `test`: Ejecuta pruebas utilizando Jest.
 - `test:coverage`: Ejecuta pruebas con generación de informe de cobertura utilizando Jest.
 
-
 # ESTRUCTURA DEL PROYECTO
-``` plaintext
+
+```plaintext
     nodeJS-typescript-skeleton/
     ├── node_modules/        # Carpeta de módulos de NodeJS (generada por npm o Yarn)
     ├── src/                 # Código fuente de la aplicación
@@ -72,4 +77,3 @@ Los modos de ejecución son los siguientes:
     └── .gitignore           # Archivo de configuración para ignorar archivos/directorios en Git
 
 ```
-
