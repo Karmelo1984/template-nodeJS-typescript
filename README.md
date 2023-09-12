@@ -1,13 +1,13 @@
 # nodeJS Typescript skeleton
 
-Base de desarrollo para todos los proyectos básicos de NodeJs Typescript.
+Proyecto base para desarrollar pequeñas API's con typescript.
 
-El gestor de paquetes seleccionado es yarn.
+Parte de `nodeJS` y `express`, y se ha optado por `yarn` como gestor de paquetes.
 
 
 # PRIMEROS PASOS: Instalación básica.
 
-Comprueba que tienes intalado nodeJS, npm, yarn y typescript.
+Comprueba que tienes intalado en tu sistema nodeJS, npm, yarn y typescript.
 ``` bash
     node --version
     npm --version
