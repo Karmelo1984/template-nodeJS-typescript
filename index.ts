@@ -1,4 +1,7 @@
 import { app } from './src/server';
+import logger from './src/logger';
+import dotenv from 'dotenv';
+dotenv.config(); // Carga las variables de entorno desde el archivo .env
 
 /**
  * Función principal para iniciar el servidor.
@@ -13,7 +16,7 @@ export async function main(): Promise<void> {
    app.listen(PORT, () => {
       const url: string = process.env.NODE_ENV === 'development' ? `${URL_DEV}:${PORT}` : URL_PROD;
 
-      console.log(`\n✅ El servidor se está ejecutando en: ${url}`);
+      logger.info(`✅ El servidor se está ejecutando en: ${url}`);
    });
 }
 
