@@ -7,7 +7,7 @@ export const app = express();
 // Habilita el uso de 'CORS' en la aplicación
 app.use(cors());
 
-// Habilita el uso de JSON en la aplicación
+// Habilita el uso de JSON en la aplicación para procesar datos en formato JSON en las solicitudes y respuestas.
 app.use(express.json());
 
 // Importa las rutas del servidor

@@ -31,11 +31,11 @@ Para que funcione los formateadores automáticos de código, debes tener instala
 
 Los modos de ejecución son los siguientes:
 
-- `dev`: Inicia el servidor en modo de desarrollo utilizando Nodemon y establece la variable de entorno NODE_ENV en
-  "development".
-- `start`: Inicia el servidor utilizando Nodemon.
-- `test`: Ejecuta pruebas utilizando Jest.
-- `test:coverage`: Ejecuta pruebas con generación de informe de cobertura utilizando Jest.
+-  `dev`: Inicia el servidor en modo de desarrollo utilizando Nodemon y establece la variable de entorno NODE_ENV en
+   "development".
+-  `start`: Inicia el servidor utilizando Nodemon.
+-  `test`: Ejecuta pruebas utilizando Jest.
+-  `test:coverage`: Ejecuta pruebas con generación de informe de cobertura utilizando Jest.
 
 # ESTRUCTURA DEL PROYECTO
 

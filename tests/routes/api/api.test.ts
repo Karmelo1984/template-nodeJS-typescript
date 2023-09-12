@@ -1,19 +1,28 @@
+/**
+ * Pruebas de integración para la ruta API '/api'.
+ */
 import request from 'supertest';
 import express, { Request, Response } from 'express';
-import { router } from '../../../src/routes/api/api'; // Asegúrate de que la ruta sea importada desde la ubicación correcta
+import { router } from '../../../src/routes/api/api';
 
-// Crear una instancia de Express
+// Crear una instancia de Express para las pruebas
 const app = express();
-app.use('/api', router); // Usa el router en la ruta '/api'
-const testPort = 3001; // Puerto para pruebas
+app.use('/api', router);
 
+/**
+ * Describe las pruebas para la ruta GET '/api'.
+ */
 describe('GET /api', () => {
-  it('should return a response with status 200 and a message', async () => {
-    const response = await request(app).get('/api');
+   /**
+    * Prueba que debería devolver una respuesta con estado 200 y un mensaje.
+    */
+   it('should return a response with status 200 and a message', async () => {
+      const response = await request(app).get('/api');
 
-    expect(response.status).toBe(200);
-    expect(response.text).toBe('✅ http://localhost:3000/api');
-  });
+      // Verificar que el estado de la respuesta sea 200
+      expect(response.status).toBe(200);
 
-  // Puedes agregar más pruebas según la funcionalidad de tu ruta '/api'
+      // Verificar que el texto de la respuesta sea el mensaje esperado
+      expect(response.text).toBe('✅ http://localhost:3000/api');
+   });
 });
