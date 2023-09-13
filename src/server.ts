@@ -11,8 +11,8 @@ app.use(cors());
 app.use(express.json());
 
 // Importa las rutas del servidor
-import { router as root } from './routes/root';
-import { router as apiRoot } from './routes/api/api';
+import { router as root } from './routes/routes.root';
+import { router as apiRoot } from './routes/api/routes.api';
 
 // Asigna las rutas a la aplicación
 app.use('/', root);
