@@ -7,8 +7,17 @@ const PATH_LOG = process.env.PATH_LOG;
 
 // Define una función de formato personalizada
 const customFormat = winston.format.printf(({ timestamp, level, message }) => {
-   // Combina las tres variables en una cadena
-   const formattedTimestamp = new Date(timestamp).toLocaleString();
+   const dateObj = new Date(timestamp);
+   const day = dateObj.getDate().toString().padStart(2, '0');
+   const month = (dateObj.getMonth() + 1).toString().padStart(2, '0');
+   const year = dateObj.getFullYear();
+   const hours = dateObj.getHours().toString().padStart(2, '0');
+   const minutes = dateObj.getMinutes().toString().padStart(2, '0');
+   const seconds = dateObj.getSeconds().toString().padStart(2, '0');
+   const milliseconds = dateObj.getMilliseconds();
+
+   const formattedTimestamp = `${month}/${day}/${year} ${hours}:${minutes}:${seconds}.${milliseconds}`;
+
    return `[${formattedTimestamp}] [${level}]: ${message}`;
 });
 
