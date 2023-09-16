@@ -1,7 +1,9 @@
-import { app } from './src/server';
-import logger from './src/logger';
 import dotenv from 'dotenv';
 dotenv.config(); // Carga las variables de entorno desde el archivo .env
+
+// Es importante cargar al inicio de la ejecución el paquete 'dotenv' para que esté disponible desde el principio
+import { app } from './src/server';
+import logger from './src/logger';
 
 /**
  * Función principal para iniciar el servidor.

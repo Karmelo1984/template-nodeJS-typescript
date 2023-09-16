@@ -1,7 +1,5 @@
 import winston, { createLogger, transports } from 'winston';
 import DailyRotateFile from 'winston-daily-rotate-file';
-import dotenv from 'dotenv';
-dotenv.config(); // Carga las variables de entorno desde el archivo .env
 
 const PATH_LOG = process.env.PATH_LOG;
 
@@ -14,7 +12,7 @@ const customFormat = winston.format.printf(({ timestamp, level, message }) => {
    const hours = dateObj.getHours().toString().padStart(2, '0');
    const minutes = dateObj.getMinutes().toString().padStart(2, '0');
    const seconds = dateObj.getSeconds().toString().padStart(2, '0');
-   const milliseconds = dateObj.getMilliseconds();
+   const milliseconds = dateObj.getMilliseconds().toString().padStart(3, '0');
 
    const formattedTimestamp = `${month}/${day}/${year} ${hours}:${minutes}:${seconds}.${milliseconds}`;
 
