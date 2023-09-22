@@ -19,13 +19,15 @@ const customFormat = winston.format.printf(({ timestamp, level, message }) => {
    const formattedTimestamp = formatter.format(dateObj) + `.${dateObj.getMilliseconds().toString().padStart(3, '0')}`;
 
    const [cabecera, cuerpo] = dividirString(message, '  -->  ');
-   level = centrarTexto(level, 16);
+
+   level = centrarTexto(level, 16).replace(/\s+/g, ' ');
+
    message =
       cabecera.length == 0
          ? cuerpo
-         : `[${centrarTexto(cabecera, HEAD_LEN)}]  -->  ${cuerpo.replace(/\s+/g, ' ').trim().slice(0, 150)}`;
+         : `[${centrarTexto(cabecera, HEAD_LEN)}]  -->  ${cuerpo.replace(/\s+/g, ' ').trim().slice(0, 500)}`;
 
-   return `[${formattedTimestamp}] [${level}]  ${message}`;
+   return formatLogEntry(formattedTimestamp, level, message);
 });
 
 // Configura el registro de Winston
@@ -37,32 +39,39 @@ const logger = createLogger({
    ),
    transports: [
       new transports.Console({
-         level: 'info',
+         level: 'debug',
          format: winston.format.combine(winston.format.colorize(), customFormat),
       }),
       new transports.File({
          level: 'info',
          format: customFormat,
-         filename: `${PATH_LOG}/app_info.log`,
+         filename: `${PATH_LOG}/${LOG_NAME}_info.log`,
       }),
       new transports.File({
          level: 'error',
          format: customFormat,
-         filename: `${PATH_LOG}/app_error.log`,
+         filename: `${PATH_LOG}/${LOG_NAME}_error.log`,
       }),
       new DailyRotateFile({
          level: 'debug',
-         filename: `${PATH_LOG}/diary/app_%DATE%.log`,
+         filename: `${PATH_LOG}/diary/${LOG_NAME}_%DATE%.log`,
          format: customFormat,
          datePattern: 'YYYY-MM-DD',
          zippedArchive: true,
-         maxSize: '750m',
+         maxSize: '250m',
          maxFiles: '14d',
-         createSymlink: true,
+         createSymlink: false,
       }),
    ],
 });
 
+logger.error('* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *');
+logger.error('* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *');
+logger.error('* * * * * * * * * * * * * * NEW EXECUTION * * * * * * * * * * * * * *');
+logger.error('* * * * * * * * * * * * * * NEW EXECUTION * * * * * * * * * * * * * *');
+logger.error('* * * * * * * * * * * * * * NEW EXECUTION * * * * * * * * * * * * * *');
+logger.error('* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *');
+logger.error('* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *');
 export default logger;
 
 /**
@@ -106,4 +115,19 @@ function centrarTexto(texto: string, maxLen: number, relleno: string = ' '): str
    const textoCentrado = texto.padStart(texto.length + espacioIzquierda, relleno).padEnd(maxLen, relleno);
 
    return textoCentrado;
+}
+
+/**
+ * Formatea una entrada de registro con un formato específico.
+ *
+ * @param {string} timestamp     - El timestamp de la entrada de registro.
+ * @param {string} level         - El nivel de registro (por ejemplo, "info", "error").
+ * @param {string} message       - El mensaje de la entrada de registro.
+ * @returns {string} La entrada de registro formateada con el formato que tendrá el log.
+ */
+function formatLogEntry(timestamp: string, level: string, message: string): string {
+   const formattedTimestamp = timestamp.padEnd(26, ' ');
+   const formattedLevel = level.padEnd(7, ' ');
+
+   return `[${formattedTimestamp}] [${formattedLevel}] ${message}`;
 }
