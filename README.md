@@ -42,45 +42,44 @@ Los modos de ejecución son los siguientes:
 ```text
     nodeJS-typescript-skeleton/
     ├── node_modules/        # Carpeta de módulos de NodeJS (generada por npm o Yarn)
-    ├── src/
-    │   ├── bot.ts               # Archivo principal del bot
-    │   ├── comandos/            # Carpeta para manejar comandos
-    │   │   ├── comando1.ts      # Lógica del comando 1
-    │   │   ├── comando2.ts      # Lógica del comando 2
+    ├── src/                 # Código fuente de la aplicación
+    │   ├── index.ts         # Punto de entrada principal de la aplicación
+    │   ├── logger.ts        # configuración del logger
+    │   ├── routes/          # Rutas de la aplicación
+    │   │   ├── api.ts       # Rutas para API
+    │   │   └── web.ts       # Rutas para la aplicación web
+    │   ├── controllers/     # Controladores de la aplicación
+    │   │   ├── api.ts       # Controladores para API
+    │   │   └── web.ts       # Controladores para la aplicación web
+    │   ├── models/          # Modelos de datos
+    │   │   ├── user.ts      # Ejemplo de modelo de usuario
     │   │   └── ...
-    │   ├── eventos/             # Carpeta para manejar eventos
-    │   │   ├── evento1.ts       # Lógica del evento 1
-    │   │   ├── evento2.ts       # Lógica del evento 2
+    │   ├── middleware/      # Middleware de la aplicación
+    │   │   ├── auth.ts      # Middleware de autenticación
     │   │   └── ...
-    │   ├── utilidades/          # Carpeta para utilidades compartidas
-    │   │   ├── traductor.ts     # Lógica para traducir texto
-    │   │   ├── baseDeDatos.ts   # Lógica para interactuar con una base de datos
+    │   ├── config/          # Configuración de la aplicación
+    │   │   ├── database.ts  # Configuración de la base de datos
     │   │   └── ...
-    │   ├── integraciones/       # Carpeta para integraciones con servicios externos
-    │   │   ├── clima.ts         # Lógica para obtener pronósticos del clima
-    │   │   ├── noticias.ts      # Lógica para obtener noticias
-    │   │   └── ...
-    │   ├── entretenimiento/         # Carpeta para juegos y entretenimiento
-    │   │   ├── adivinanzas.ts       # Lógica para juegos de adivinanzas
-    │   │   ├── trivia.ts            # Lógica para juegos de trivia
-    │   │   └── ...
-    │   ├── gestionGrupos/           # Carpeta para gestión de grupos y canales
-    │   │   ├── moderacion.ts        # Lógica de moderación de grupos
-    │   │   ├── bienvenida.ts        # Lógica de bienvenida a nuevos miembros
-    │   │   └── ...
-    │   ├── inteligenciaArtificial/  # Carpeta para inteligencia artificial y procesamiento de lenguaje natural
-    │   │   ├── chatbot.ts           # Lógica de un chatbot basado en IA
-    │   │   └── ...
-    │   ├── encuestas/                # Carpeta para manejar encuestas y votaciones
-    │   │   ├── encuestas.ts          # Lógica para crear y gestionar encuestas
-    │   │   └── ...
-    │   ├── alertas/                  # Carpeta para enviar alertas y recordatorios
-    │   │   ├── alertas.ts            # Lógica para enviar alertas programadas
-    │   │   └── ...
-    │   ├── generacionContenido/      # Carpeta para la generación de contenido dinámico
-    │   │   ├── contenido.ts          # Lógica para generar contenido dinámico
-    │   │   └── ...
+    ├── public/              # Archivos públicos (HTML, CSS, imágenes, etc.)
+    │   ├── index.html       # Ejemplo de página HTML
+    │   ├── styles/          # Estilos CSS
+    │   ├── images/          # Imágenes
+    ├── views/               # Plantillas de vistas (si estás utilizando un motor de plantillas)
+    │   ├── home.hbs         # Ejemplo de plantilla Handlebars (o .ejs si usas EJS)
+    │   ├── layout.hbs       # Plantilla de diseño (si aplicable)
     │   └── ...
+    ├── tests/               # Pruebas unitarias y de integración
+    │   │── ...
+    │   ├── routes/          # Rutas de la aplicación
+    │   │   └── ...
+    │   ├── controllers/     # Controladores de la aplicación
+    │   │   └── ...
+    │   ├── models/          # Modelos de datos
+    │   │   └── ...
+    │   ├── middleware/      # Middleware de la aplicación
+    │   │   └── ...
+    │   ├── config/          # Configuración de la aplicación
+    │   │   └── ...
     ├── package.json         # Archivo de configuración de npm con las dependencias y scripts
     ├── package-lock.json    # Archivo generado por npm para asegurar versiones específicas de paquetes
     ├── tsconfig.json        # Configuración de TypeScript
