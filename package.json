@@ -1,9 +1,17 @@
 {
    "name": "nodejs-typescript-skeleton",
    "version": "1.0.0",
-   "main": "index.js",
-   "license": "MIT",
    "description": "Proyecto que pretende ser una base de desarrollo para todos los proyectos NodeJs Typescript.",
+   "author": "Carmelo Molero Castillo",
+   "private": false,
+   "license": "MIT",
+   "main": "index.js",
+   "scripts": {
+      "dev": "cross-env NODE_ENV=development nodemon index.ts",
+      "start": "nodemon index.ts",
+      "test": "jest",
+      "test:coverage": "jest --coverage"
+   },
    "dependencies": {
       "cors": "^2.8.5",
       "dotenv": "^16.3.1",
@@ -28,12 +36,5 @@
       "ts-node": "^10.9.1",
       "typescript": "^5.2.2"
    },
-   "scripts": {
-      "dev": "cross-env NODE_ENV=development nodemon index.ts",
-      "start": "nodemon index.ts",
-      "test": "jest",
-      "test:coverage": "jest --coverage"
-   },
-   "keywords": [],
-   "author": ""
+   "keywords": []
 }
