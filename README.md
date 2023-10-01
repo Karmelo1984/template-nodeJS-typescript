@@ -1,4 +1,4 @@
-# nodeJS Typescript skeleton
+# template-nodeJS-typescript
 
 Proyecto base para desarrollar pequeñas API's con typescript.
 
